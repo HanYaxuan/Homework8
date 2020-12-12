@@ -1,0 +1,96 @@
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Document</title>
+                <style>
+                        .box{
+                                width: 100px;
+                                height: 100px;
+                                background-color: #ccc;
+                                border-radius: 50px;
+                                margin: 10px;
+                                float: left;
+
+                        }
+                        .clear::after{
+
+
+                        }
+                </style>
+		
+	</head>
+	<body>
+         <div id="box" class="clear">
+                <div class="box">
+                </div>
+        </div>
+		
+        <script>
+        //点击获取某一节点的属性
+        var box=document.getElementById('box');
+        function getColor(){
+                var color='';
+                var str='0123456789abcdef';
+                for(var i=0;i<6;i++){
+                        var index=parseInt(Math.random()*16);
+                        color+=str[index];
+                }
+                return '#'+color;
+        }
+        function color(){
+                var r=Math.round(Math.random()*255);
+                var g=Math.round(Math.random()*255);
+                var b=Math.round(Math.random()*255);
+                var a=Math.random()*0.7+0.3;
+                var rgba="rgba("+r+","+g+","+b+","+a+")";
+                return rgba;
+        }
+        box.onclick=function(){
+                var bgcolor=getColor();
+                this.innerHTML+='<div style="background:'+bgcolor+'" class="box"></div>';
+        }
+        // box.onclick=function(){
+        //         var classValue=this.getAttribute('class');
+        //         // console.log(classValue);
+                
+        //         // if(classValue=='box'){
+        //         //         this.setAttribute('class','bbb');
+        //         // }else{
+        //         //      this.setAttribute('class','box');   
+        //         // }
+        //         if(this.hasAttribute('class')){
+        //                 this.removeAttribute('class');
+        //         }ekse{
+        //                 this.setAttribute('class','box')
+        //         }
+        // }
+
+        </script>
+        
+		
+	</body>
+</html>
+ -->
+ <!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="utf-8">
+                <title>Document</title>
+                
+        </head>
+        <body>
+                <a href="http://www.baidu.com">百度一下</a>
+                
+        <script>
+               var a=document.getElementsByTagName('a');
+               var textNode
+               var attrNode=a.getAttributeNode('href');
+               console.dir(a.nodeValue);
+               console.dir(attrNode.nodeValue) ;
+        
+        </script>
+        
+                
+        </body>
+</html>

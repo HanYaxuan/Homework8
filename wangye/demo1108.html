@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Document</title>
+		
+	</head>
+	<body>
+
+		<!-- <button onclick="back()">返回</button>
+		onclick=history.back();
+		<button onclick="goBaidu()">前进</button> -->
+		<button id="time">10</button>
+		<button onclick="fn()">发送验证码</button>
+        <script>
+        	// var hash=location.hash;
+        	// console.log(hash);
+         //    function back(){
+         //    	history.back();
+         //    }
+         //    function goBaidu(){
+         //    	location.href='http://www.baidu.com' 
+         //    }
+         //绑定点击事件
+         function fn(){
+
+         	//周期执行
+         	var num=10;
+         	
+         		var timeId=setInterval(function(){
+         		time.innerHTML=--num;
+         		//btn.innerHTML=--num;
+         		//time.inner-=1;
+         		if(num==0){
+         			clearInterval(timeId);
+         			//btn.innerHTML='请重新输入'
+         		}
+         	},1000)
+         	
+         	
+         }
+        </script>
+        
+		
+	</body>
+</html>

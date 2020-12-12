@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Document</title>
+		<style>
+                *{
+                        margin: 0px;
+                        padding: 0px;
+                }
+                #box{
+                        height: 500px;
+                        width: 400px;
+                        margin-left: 400px;
+
+
+                }
+                #one{
+                        height: 400px;
+                        width: 300px;
+                        border: 1px solid black;
+                        background-color: #ccc;
+                        position: relative;
+
+                } 
+
+                 #two{
+                        height: 400px;
+                        width: 300px;
+                        border: 1px solid black;
+                        position: absolute;
+                        top: 0px;
+                       
+                }  
+                #top{
+                        width: 300px;
+                        height: 30px;
+                }
+                #char{
+                        float: left;
+                }
+                #number{
+                        float: left;
+                }
+                #mideam{
+                        width: 300px;
+                        height: 30px;
+                }
+                #random{
+                        float: left;
+                }
+                #text{
+                        float: left;
+                }
+                #score{
+                        float: right;
+                        width: 100px;
+                }
+
+                #three{
+                        width: 200px;
+                        height: 200px;
+                        
+                        position: absolute;
+                        margin-left: 60px;
+                        margin-top: 10px;
+                        overflow: auto;
+                
+                }
+                #but{
+                        margin-left: 65px;
+                        margin-top: 50px;
+                }
+                li{
+                        list-style: none;
+                }
+                #top{
+                        margin-left: 20px;
+                        margin-top: 50px;
+                }
+                #mideam{
+                        margin-left: 20px;
+                }
+                #sub{
+                        margin-left: 20px;
+                }
+                </style>
+	</head>
+	<body>
+        <div id="box">
+                <div id="one">
+                        <div id="but">
+                        <button id="start">开始答题</button> 
+                        <button id="memory">答题记录</button>
+                        </div>
+                        <div id="three">
+                                <ul id="put">
+                                        
+                                </ul>
+                                
+                        </div> 
+                </div>
+                <div id="two">
+                  <div id="top">
+                        <div id="char">倒计时：</div>
+                          <div id="number"></div>
+                          
+                          <div id="score"></div>
+                  </div> 
+                  <div id="mideam">
+                      <div id="random"></div>
+                      <input type="text" id="text"/>
+                        
+                  </div>
+                  <input type="submit" value="提交答案" id="sub"/> 
+                </div>
+                
+        </div>
+		
+        <script>
+                var arr=[];
+                var brr=[];
+                var crr=[];
+                var drr=[];
+                var start=document.getElementById('start');
+                two.style.display="none";
+                three.style.display="none"
+        	start.onclick=function(){
+                        one.style.display="none";
+                        two.style.display="block";
+                        three.style.display="none"
+                        var num=30;
+                        var timeId=setInterval(function(){
+                        number.innerHTML=--num+'s';
+                        
+                        if(num==0){
+                             clearInterval(timeId);
+                             one.style.display="block";
+                             two.style.display="none"; 
+                             
+
+                        }
+                },1000)
+                text.focus();
+                score.innerHTML='得分：0';
+                }
+                var ranNum1;
+                var ranNum2;
+                function fn(){
+                ranNum1=parseInt(Math.random()*100)+1;
+                 ranNum2=parseInt(Math.random()*100)+1;
+                var random=document.getElementById('random');
+                random.innerHTML=ranNum1+'+'+ranNum2+'=';
+                brr.push(ranNum1);
+                crr.push(ranNum2);
+                }
+
+                
+                fn();
+                
+                var result=document.getElementById('text');
+                var num=0;
+                var sub=document.getElementById('sub');
+                var score=document.getElementById('score');
+                var put=document.getElementById('put');
+                var memory=document.getElementById('memory');
+                var a=0;
+                
+                sub.onclick=function(){
+                        a++;
+                      arr.push(result.value);  
+                     if(result.value==ranNum1+ranNum2){
+                        
+
+                        
+                        num=num+10;
+                        drr.push('对');
+
+                }else{
+                        drr.push('错');
+                }
+                score.innerHTML='得分:'+num;
+                fn(); 
+
+                text.value="";
+                text.focus();
+                var li=document.createElement("li");
+                put.appendChild(li);
+                
+                }
+                
+                memory.onclick=function(){
+                        three.style.display="block";
+                        for(var i=0;i<a;i++){
+                           put.children[i].innerHTML=brr[i]+'+'+crr[i]+'='+arr[i]+'结果：'+drr[i];
+                                
+                        }
+                        
+                }
+                
+                
+        </script>
+                
+		
+	</body>
+</html>

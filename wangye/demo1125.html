@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="utf-8">
+                <title>Document</title>
+                
+        </head>
+        <body>
+        	<ul id='list'>
+        		<li>1</li>
+        		<li>2</li>
+        	</ul>
+            <input type="text">
+            <button class="send">发送</button>    
+        <script>
+             //获取节点
+             var list=document.getElementById('list'),
+                 inp=document.getElementsByTagName('input')[0],
+                 send=document.getElementsByClassName('send')[0];
+             //绑定事件
+             //点击li，删除自己
+             var lis=list.children;
+             for(var i=0;i<lis.length;i++){
+             	lis[i].onclick=function(){
+             		list.removeChild(this);
+             	}
+             }
+             //事件委托
+             document.body.onclick=function(e){
+             	if(e.target.nodeName=='LI'){
+             		list.removeChild(e.target);
+             	}
+             	
+             }
+             //回车添加
+             inp.onkeypress=function(e){
+             	
+             	if(e.keyCode==13){
+             		if(!inp.value){
+             			alert('');
+             			return;
+             		}
+             	var li=document.createElement('li');
+             	li.innerHTML=inp.value;
+             	list.appendChild(li);
+             	inp.value='';
+             }
+             }
+             send.onclick=function(){
+             	if(inp.value){
+             		var li=document.createElement('li');
+             	    li.innerHTML=inp.value;
+             	    list.appendChild(li);
+             	    inp.value='';
+             }else{
+             	alert('请输入')；
+             }
+             	
+             }
+        </script>
+        
+                
+        </body>
+</html>

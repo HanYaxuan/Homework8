@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		
+        <script>
+            function Student(no,chinese,math,english){
+            	this.no=no;
+            	this.chinese=chinese;
+            	this.math=math;
+            	this.english=english;
+            	this.total=chinese+math+english;
+
+            }
+            
+	        var arr=[];
+            arr[0]=new Student(202001,105,62,118);
+            arr[1]=new Student(202002,69,78,120);
+            arr[2]=new Student(202003,86,64,80);
+            arr[3]=new Student(202004,78,99,91);
+            arr[4]=new Student(202005,107,97,70);
+            arr[5]=new Student(202006,112,61,92);
+            arr[6]=new Student(202007,101,79,104);
+            arr[7]=new Student(202008,71,72,105);
+            arr[8]=new Student(202009,56,68,61);
+            arr[9]=new Student(202010,98,83,77);
+           
+            var brr=arr.sort(function(a,b){
+            return b.total-a.total;
+            })
+            document.write('<table border="1" cellspacing="0">')
+            
+            for(var i=0;i<10;i++){
+            	document.write("<tr>")
+            	if(i==0){
+            		document.write("<th>"+"StudentNumber"+"</th>")
+            		document.write("<th>"+"Chinese"+"</th>")
+             		document.write("<th>"+"Math"+"</th>")
+            		document.write("<th>"+"English"+"</th>")
+            		document.write("<th>"+"TotalScore"+"</th>")
+            	}
+            	else{
+            		document.write("<td>"+brr[i-1].no+"</td>")
+            		document.write("<td>"+brr[i-1].chinese+"</td>")
+            		document.write("<td>"+brr[i-1].math+"</td>")
+            		document.write("<td>"+brr[i-1].english+"</td>")
+            		document.write("<td>"+brr[i-1].total+"</td>")
+            	}
+            	
+            }
+		
+        </script>
+
+        
+		
+	</body>
+</html>

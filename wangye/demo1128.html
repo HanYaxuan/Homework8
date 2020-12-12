@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Document</title>
+		<style>
+                /* #box{
+                        color: #fff;
+                        font-size: 30px;
+                } 
+                #box::after{
+                        content: 'abc';
+                        color: 'red';
+                }   */
+                #box{
+                        position: relative;
+                        width: 600px;
+                        height: 500px;
+                        border: 3px solid #000;
+                }
+                #box.span{
+                        position: absolute;
+                        left: 400px;
+                        white-space: nowrap;
+
+                }
+                </style>
+	</head>
+	<body>
+                <!-- <div id="box" style='width:100px;width:100px;height:100px;background:#ccc>样式</div>
+                <button id='btn'>设置</button> -->
+                <div id='box'>
+                        <div id='wrap'></div>
+                </div>
+                <input id='inp'/>
+        <script>
+                // var div=document.getElementById('box');
+                // var btn=document.getElementById('btn');
+                // btn.onclick=function(){
+        	
+                // var left=0;
+                // setInterval(function(){
+                //         div.style.marginLeft=left++ +'px';
+                // },30)
+                // }
+                // // setInterval(
+                // // function(){
+                // //         if(div.isRed){
+                // //                 div.style.background='#ccc';
+                // //                 div.isRed=false;
+                // //         }else{
+                // //                 div.style.background='red';
+                // //                 div.isRed=true;
+                // //         }
+                // //        //isRed是否为红的，必须前面有该属性
+                // //        //只能拿到行内的样式，<style></style>的拿不到，但是可以修改
+                // //        //颜色转换成rgb
+                // //         // if(div.style.background=='red'){
+                // //         //         div.style.background='#ccc';
+                // //         // }else{
+                // //         //         div.style.background='red';
+                // //         // }
+                        
+                // // },1000)
+                // function getStyle(ele,style){
+                //         if(ele.currentStyle){
+                //                 return ele.currentStyle[style];
+                //         }else{
+                //                 return getComputedStyle(ele)[style];
+                //         }
+                // }
+                var box=document.getElementById('weap')
+                var inp=document.getElementById('inp')
+                inp.onkeypress=function(e){
+                        if(e.keyCode==13){
+                        var span=document.createElement('span');
+                        span.innerHTML=this.value;
+                        span.style.left='300px';
+                        span.style.top=Math.random()*300+'px';
+                       var timer= setInterval(function(){
+                                span.style.left=parseInt(span.style.left)-1 + 'px';
+                                if(parseInt(span.style.left)<-span.offsetWidth){
+                                        box.removeChild(span);
+                                        clearInterval(timer);
+                                }
+                        },30)
+                        box.appendChildren(span);
+                }
+                }
+        </script>
+        
+		
+	</body>
+</html>

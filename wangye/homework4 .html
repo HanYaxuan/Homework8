@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Document</title>
+		
+	</head>
+	<body>
+        <button id="skip" onclick="fn1()">跳转</button>
+        <button id="stop" onclick="fn()">停止</button>    
+        <script>
+            var skipId;
+            function fn1(){
+                skipId=setTimeout(function(){
+                    location.href='http://www.baidu.com'
+                },5000);
+                
+
+            } 
+            function fn(){
+                clearTimeout(skipId);
+            }
+            
+            
+        </script>
+        
+		
+	</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Document</title>
+        
+    </head>
+    <body>
+        <button id="put" onclick="fn1()">输入名字</button>
+        <button id="cli" onclick="fn()">点击</button> 
+        <script>
+            var arr;
+            var num=0,i=0;
+            var cliId;
+            function fn1(){
+                var student=prompt("","");
+                arr=student.split(",");
+
+            }
+            function fn(){
+            
+                num++;
+                
+                if(num%2!=0)
+                {
+
+                    cliId=setInterval(function(){
+                        if(i==arr.length){
+                            i=0;
+                        };
+                        console.log(arr[i]);
+                        i++;
+                    },5000)
+                }
+                else{
+                    clearInterval(cliId);
+                }
+
+            }
+
+            
+            
+        </script>
+        
+        
+    </body>
+</html>
+

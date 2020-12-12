@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Document</title>
+		<style>
+                .warp{
+                        width: 200px;
+                        height: 200px;
+                        background-color: #ccc;
+                }              
+                </style>
+	</head>
+	<body>
+
+		
+		<div class="warp">
+                        <button id="btn">事件对象</button>
+                </div>
+                <a href="#">阻止默认行为</a>
+        <script>
+
+                var btn=document.getElementById('btn');
+                var a=document.getElementsByTagName('a')[0];
+                var wrap=document.getElementsByClassName('wrap')[0];
+                warp.onmousedown=function(){
+                        warp.onmousemove=function(e){
+                                this.style.left=e.clientX+'px';
+                                this.style.top=e.clientY+'px';
+                        }
+                }
+                warp.onmouseup=function(){
+                        document.mousemove=null;
+                }
+                warp.onclick=function(evt){
+                        console.log(123);
+
+                }
+                warp.onmousemove=function(evt){
+                        console.log(evt.clientX);
+                }
+                btn.onclick=function(){
+                        evt.stopPropagation();
+                        console.log("Hello");
+                }
+                var.onclick=function(e){
+                        e.preventDefault();
+                }
+
+        </script>
+        
+		
+	</body>
+</html>

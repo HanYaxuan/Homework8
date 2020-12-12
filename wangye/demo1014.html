@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" onchange="compare(this)">
+		<div id='box'></div>
+		<script>
+			var num=100
+			function compare(that){
+				if(that.value==100){
+					box.innerHTML='成功'
+				}
+				else if(that.value>100){
+					box.innerHTML='大'
+				}
+				else {
+					box.innerHTML='小'
+				}
+			}
+
+			function reve(str){
+				var s='';
+				for(var i=0;i<str.length;i++){
+					s+=str[str.length-i-i]
+				}
+				return s
+				//return str
+			}
+			console.log(reve('helloworld'))
+		</script>
+		<script>
+			//var arr=[1,2,3,4,5,6];
+			//arr.splice(2,3);
+			//console.log(arr);//从第二位开始删除，删除3个
+			//arr.splice(2,0,100,200,300)//从第二位开始加入100,200,300
+			//console.log(arr);
+			//arr.forEach(function(item,i){
+				//console.log(item,i)
+			//})//每执行一次的执行的循环体
+			/*var str='i love china';
+			function toUpper(str){
+				var words=str.split('');
+				words.forEach(function(item,i){
+					words[i]=item[0].toUpperCase()+item.slice(1)
+				})
+				return words.join('')
+			}
+			console.log(toUpper(str));*/
+			var unit=['元','拾','佰','仟','万','拾','佰','仟']
+			var num=['零','壹','贰','叁','肆','伍','陆','柒','捌','玖','拾']
+			
+			function change(that){
+				var nums=that.value.split('');
+				var str='';
+				nums.forEach(function(item){
+					str+=num[item];
+				})
+				box.innerHTML=str;
+			}
+		</script>
+
+	</body>
+</html>

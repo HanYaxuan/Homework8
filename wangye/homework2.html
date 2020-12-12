@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function print(l){
+				for(var i=1;i<=l;i++){
+					for(var j=1;j<=2*l-1-2*(l-i);j++){
+						document.write('*');
+					}
+					document.write('</br>');
+				}
+				var n=l*l;
+				document.write("共打印"+n+"个*");
+				return n;
+				
+				
+			}
+			print(9);
+
+
+			
+		</script>
+
+	</body>
+</html>

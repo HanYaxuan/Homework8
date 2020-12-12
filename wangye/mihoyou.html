@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>mihoyou</title>
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/game.css" />
+</head>
+<body>
+	<div class="header">
+		<div class="container clear">
+			<img src="../image/logo (1).png" class="logo"/>
+			<ul class="nav clear">
+				<li><a href="#">公司简介</a></li>
+				<li><a href="#">产品信息</a></li>
+				<li><a href="#">游戏资讯</a></li>
+				
+			</ul>
+			<form class="form clear fr">
+                <input type="text" placeholder="输入关键词" class="search" />
+                <input type="button" class="submit" />
+            </form>
+            <ul class="header-info">
+                    <li id="login">登陆/注册</li>
+                    <li class="weixin"><a href="#">微信</a></li>
+                </ul>
+		</div>
+	</div>
+	<div class="banner">
+
+		<ul>
+            <li class="banner-item">
+                <img src="../image/1.jpg" alt="第一页" id="text" />
+            </li>
+            
+        </ul>
+        
+	</div>
+	<div class="part">
+		<div class="container">
+			<div class="part-top" >游戏产品</div>
+			<div id="currentTime"></div>
+			<ul class="games clear">
+				<li>
+					<img src="../image/weiding.jpg" class="you"/>
+					<div class="content">未定事件簿</div>
+				</li>
+				<li>
+					<img src="../image/yuanshen.jpg" class="you"/>
+					<div class="content">原神</div>
+				</li>
+				<li>
+					<img src="../image/benghuai.jpg" class="you"/>
+					<div class="content">崩坏3</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="footer clear">
+		<div class="container">
+			<img src="../image/logo2.png" />
+			<ul class="container-right clear">
+				<li class="one"><a href="#">隐私政策</a></li>
+				<li><a href="#">关于我们</a></li>
+				<li><a href="#">联系我们</a></li>
+				<li><a href="#">加入我们</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="in">
+		
+			<div id="first">
+                     
+                           <div class="top">
+                                <span id="user">用户名</span>
+                                <input type="text" id="name"/>
+                           </div>
+                           
+                           <div id="bottom1" style="font-size:10px; color:#ccc;height:30px"></div>
+                     
+                   </div> 
+                   <div id="second">
+                     <div class="top">
+                        <span id="key">设置密码</span>
+                        <input type="password" id="keycode"/>
+                     </div>
+                     <div id="bottom2" style="font-size:10px ;color:#ccc;height:30px"></div>
+                   </div> 
+                   <input type="submit" value="立即注册" id="put"/> 
+                   <input type="submit" value="关闭" id="close"/> 
+		
+	</div>
+	<div id="top" class="up" onclick="goTop()" >回到顶部</div>
+	<script>
+		var in1=document.getElementById('in');
+		var login=document.getElementById('login');
+		var close=document.getElementById('close');
+		login.onclick=function(){
+			in1.style.display="block";
+		}
+		close.onclick=function(){
+			in1.style.display="none";
+		}
+		function goTop(){
+			var odiv = document.getElementById("top");
+			
+			document.documentElement.scrollTop = document.body.scrollTop = 0;
+		}
+
+		window.onscroll = function(){
+			var odiv = document.getElementById("top");
+			
+			
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			
+			
+			if(scrollTop > 1000){	
+				odiv.style.display = "block";
+			} else {
+				odiv.style.display = "none"
+			}
+		}
+		setInterval(function(){   
+      var date = new Date();   
+      var y = date.getFullYear();	//获取年份
+      var M = date.getMonth()+1;	//获取月份
+      //getMonth返回0、1、2、...、11，分别代表1~12月
+      var d = date.getDate();	//获取日期
+      var w = date.getDay();	//获取星期
+      //getDay返回0、1、2、...、6，分别代表周日、周一、...、周六
+      switch(w){
+        case 1:
+          w = '一';
+          break;
+        case 2:
+          w = '二';
+          break;
+        case 3:
+          w = '三';
+          break;
+        case 4:
+          w = '四';
+          break;
+        case 5:
+          w = '五';
+          break;
+        case 6:
+          w = '六';
+          break;
+        default:
+          w = '日';
+      }
+      var h = date.getHours();	//获取小时
+      if(h>=0 && h<=9)
+        h = '0'+h;
+      var m = date.getMinutes();	//获取分钟
+      if(m>=0 && m<=9)
+        m = '0'+m;
+      var currentTime = document.getElementById('currentTime');
+      currentTime.innerHTML = y+'年'+M+'月'+d+'日'+'  '+'星期'+w+'  '+h+':'+m;
+    },1000)
+	</script>
+</body>
+	
+	</html>
